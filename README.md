@@ -1,6 +1,6 @@
-<head>                                            TUGAS JAVA 2 (OOP)
+                                                TUGAS JAVA 2 (OOP)
                                 “Membuat Sistem Aplikasi Perpustakaan berbasis Java”
-<head>
+
 
 
 <p> Anggota : </p>
