@@ -1,9 +1,9 @@
                                                 TUGAS JAVA 2 (OOP)
                                 “Membuat Sistem Aplikasi Perpustakaan berbasis Java”
 
-Anggota : - Agung Deli Septian
-          - Giofanny Mowoka
-          - Faisyal Maulana Aghssani
+<p> Anggota : - Agung Deli Septian </p>
+<p>           - Giofanny Mowoka    </p>
+<p>           - Faisyal Maulana Aghssani </p>
           
           
           
