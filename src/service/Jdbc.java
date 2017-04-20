@@ -22,6 +22,7 @@ public class Jdbc {
     private PerpusDao petugasDao;
     private MahasiswaDao mahasiswaDao;
     private BukuDao bukuDao;
+    //private PeminjamanDao peminjamanDao;
     private Connection connection;
     public void setDataSource(DataSource dataSource){
         try {
@@ -30,6 +31,9 @@ public class Jdbc {
             petugasDao.setConnection(connection);
             mahasiswaDao = new MahasiswaDao();
             mahasiswaDao.setConnection(connection);
+            bukuDao = new BukuDao();
+            bukuDao.setConnection(connection);
+            
         } catch (SQLException ex) {
             ex.printStackTrace();
         }

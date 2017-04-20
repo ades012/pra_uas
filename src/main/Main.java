@@ -166,6 +166,24 @@ public class Main {
 
                     break;
                 case "2":
+                    System.out.print("NPM : ");
+                    String npm = in.nextLine();
+                    System.out.print("Nama : ");
+                    String nama = in.nextLine();
+                    System.out.print("Jurusan : ");
+                    String jurusan = in.nextLine();
+                    System.out.print("Alamat : ");
+                    String alamat = in.nextLine();
+                    System.out.print("Simpan? (Y/N) : ");
+                    String tambah = in.nextLine();
+                    if (tambah.toLowerCase().equals("y")) {
+                    Mahasiswa mhs = new Mahasiswa();
+                     mhs.setNpm(Integer.parseInt(npm));
+                        mhs.setNama(nama);
+                        mhs.setAlamat(jurusan);
+                        mhs.setJurusan(alamat);
+                        service.save(mhs);
+                    }
                     break;
                 case "0":
                     active = false;

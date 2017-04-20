@@ -26,8 +26,8 @@ public class MahasiswaDao {
     private PreparedStatement getAllStatement;
     private PreparedStatement getByIdStatement;
 
-    private final String insertQuery = "insert into mahasiswa(nama,jurusan,alamat) "
-            + " values(?,?,?)";
+    private final String insertQuery = "insert into mahasiswa(npm,nama,jurusan,alamat) "
+            + " values(?,?,?,?)";
     private final String updateQuery = "update mahasiswa set nama=?, "
             + " jurusan=?, alamat=? where npm=?";
     private final String deleteQuery = "delete from mahasiswa where npm=?";
@@ -44,19 +44,19 @@ public class MahasiswaDao {
     }
     
     public Mahasiswa save(Mahasiswa mahasiswa) throws SQLException{
-        if (mahasiswa.getNpm() == 0) {
-            insertStatement.setString(1, mahasiswa.getNama());
-            insertStatement.setString(2, mahasiswa.getJurusan());
-            insertStatement.setString(3, mahasiswa.getAlamat());
-            int npm = (int) insertStatement.executeUpdate();
-            mahasiswa.setNpm(npm);
-        } else {
+//        if (mahasiswa.getNpm() == 0) {
+//            insertStatement.setString(1, mahasiswa.getNama());
+//            insertStatement.setString(2, mahasiswa.getJurusan());
+//            insertStatement.setString(3, mahasiswa.getAlamat());
+//            int npm = (int) insertStatement.executeUpdate();
+//            mahasiswa.setNpm(npm);
+//        } else {
             insertStatement.setString(1, mahasiswa.getNama());
             insertStatement.setString(2, mahasiswa.getJurusan());
             insertStatement.setString(3, mahasiswa.getAlamat());
             updateStatement.setInt(5, mahasiswa.getNpm());
             updateStatement.executeUpdate();
-        }
+//        }
         return mahasiswa;
     }
     
