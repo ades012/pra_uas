@@ -11,3 +11,6 @@
           
                                 SEKOLAH TINGGI MANAJEMEN INFORMATIKA & KOMPUTER BANDUNG
                                             (STMIK) “AMIKBANDUNG” 2017
+
+
+Screenshoot hasil dari pengetesan aplikasi dapat dilihat [disini](https://drive.google.com/open?id=0B2PPe_60sUQwUzF5NTNNWEtjelR4S3ZqcExVZGJ5S19CRG5Z)
