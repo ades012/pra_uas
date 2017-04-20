@@ -10,6 +10,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
 import model.Mahasiswa;
+import model.Peminjaman;
 import dao.BukuDao;
 import model.Buku;
 /**
@@ -86,10 +87,10 @@ public class Jdbc {
         return null;
     }
     
-    public Mahasiswa save(Mahasiswa mahasiswa) {
+    public Mahasiswa insert(Mahasiswa mahasiswa) {
         try {
             connection.setAutoCommit(false);
-            mahasiswaDao.save(mahasiswa);
+            mahasiswaDao.insert(mahasiswa);
             connection.commit();
             connection.setAutoCommit(true);
         } catch (SQLException ex) {
@@ -105,7 +106,22 @@ public class Jdbc {
     public Mahasiswa delete(Mahasiswa mahasiswa) {
         try {
             connection.setAutoCommit(false);
-            mahasiswaDao.save(mahasiswa);
+            mahasiswaDao.delete(mahasiswa);
+            connection.commit();
+            connection.setAutoCommit(true);
+        } catch (SQLException ex) {
+            try {
+                connection.rollback();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return mahasiswa;
+    }
+    public Mahasiswa update(Mahasiswa mahasiswa) {
+        try {
+            connection.setAutoCommit(false);
+            mahasiswaDao.update(mahasiswa);
             connection.commit();
             connection.setAutoCommit(true);
         } catch (SQLException ex) {
@@ -144,5 +160,4 @@ public class Jdbc {
         }
         return null;
     }
-
 }

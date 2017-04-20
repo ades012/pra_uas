@@ -14,6 +14,7 @@ import java.util.logging.Logger;
 import model.Mahasiswa;
 import model.Petugas;
 import model.Buku;
+import model.Peminjaman;
 import service.Jdbc;
 
 /**
@@ -143,10 +144,10 @@ public class Main {
         Boolean active = true;
         while(active == true) {
             System.out.println("\nMenu Daftar Anggota : \n");
-            System.out.println("1. Lihat Daftar Anggota");
+            System.out.println("1. Daftar Anggota");
             System.out.println("2. Tambah Anggota");
             System.out.println("3. Ubah Biodata");
-            System.out.println("4. Hapus Data Anggota");
+            System.out.println("4. Hapus Anggota");
             System.out.println("\n0. Kembali ke Menu Utama");
 
             System.out.print("\nPilihan : ");
@@ -180,11 +181,49 @@ public class Main {
                     Mahasiswa mhs = new Mahasiswa();
                      mhs.setNpm(Integer.parseInt(npm));
                         mhs.setNama(nama);
-                        mhs.setAlamat(jurusan);
-                        mhs.setJurusan(alamat);
-                        service.save(mhs);
+                        mhs.setJurusan(jurusan);
+                        mhs.setAlamat(alamat);
+                        service.insert(mhs);
                     }
                     break;
+                case "3":
+                    System.out.print("Masukkan NPM : ");
+                    String npm_a = in.nextLine();
+                    Mahasiswa mhs_a = service.getMahasiswa(Integer.parseInt(npm_a));
+                    if (mhs_a == null) {
+                        System.out.println("Data mahasiswa tidak ditemukan");
+                        break;
+                    }
+                    System.out.print("Nama : ");                    
+                    String nama_a = in.nextLine();
+                    System.out.print("Jurusan : ");
+                    String jurusan_a = in.nextLine();
+                    System.out.print("Alamat : ");
+                    String alamat_a = in.nextLine();
+                    System.out.print("Simpan? (Y/N) : ");
+                    String tambah_a = in.nextLine();
+                    if (tambah_a.toLowerCase().equals("y")) {
+                        mhs_a.setNpm(Integer.parseInt(npm_a));
+                        mhs_a.setNama(nama_a);
+                        mhs_a.setJurusan(jurusan_a);
+                        mhs_a.setAlamat(alamat_a);
+                        service.update(mhs_a);
+                    }
+                break;
+                case "4":
+                    System.out.print("Masukkan NPM : ");
+                    String npm_b = in.nextLine();
+                    Mahasiswa mhs_b = service.getMahasiswa(Integer.parseInt(npm_b));
+                    if (mhs_b == null) {
+                        System.out.println("Data tidak ditemukan.");
+                        break;
+                    }
+                    System.out.print("Hapus? (Y/N) : ");
+                    String hapus = in.nextLine();
+                    if (hapus.toLowerCase().equals("y")) {
+                        service.delete(mhs_b);
+                    }
+                break;
                 case "0":
                     active = false;
                     break;

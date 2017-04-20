@@ -43,7 +43,7 @@ public class MahasiswaDao {
         getAllStatement = this.connection.prepareStatement(getAllQuery);
     }
     
-    public Mahasiswa save(Mahasiswa mahasiswa) throws SQLException{
+    public Mahasiswa insert(Mahasiswa mahasiswa) throws SQLException{
 //        if (mahasiswa.getNpm() == 0) {
 //            insertStatement.setString(1, mahasiswa.getNama());
 //            insertStatement.setString(2, mahasiswa.getJurusan());
@@ -51,10 +51,10 @@ public class MahasiswaDao {
 //            int npm = (int) insertStatement.executeUpdate();
 //            mahasiswa.setNpm(npm);
 //        } else {
-            insertStatement.setString(1, mahasiswa.getNama());
-            insertStatement.setString(2, mahasiswa.getJurusan());
-            insertStatement.setString(3, mahasiswa.getAlamat());
-            updateStatement.setInt(5, mahasiswa.getNpm());
+            insertStatement.setInt(1, mahasiswa.getNpm());
+            insertStatement.setString(2, mahasiswa.getNama());
+            insertStatement.setString(3, mahasiswa.getJurusan());
+            insertStatement.setString(4, mahasiswa.getAlamat());
             updateStatement.executeUpdate();
 //        }
         return mahasiswa;
@@ -65,7 +65,14 @@ public class MahasiswaDao {
         deleteStatement.executeUpdate();
         return mahasiswa;
     }
-    
+     public Mahasiswa update(Mahasiswa mahasiswa) throws SQLException {
+        updateStatement.setInt(1, mahasiswa.getNpm());
+        updateStatement.setString(2, mahasiswa.getNama());
+        updateStatement.setString(3, mahasiswa.getJurusan());
+        updateStatement.setString(4, mahasiswa.getAlamat());
+        updateStatement.executeUpdate();
+        return mahasiswa;
+    }
     public Mahasiswa getByNpm(int npm) throws SQLException{
         getByIdStatement.setLong(1, npm);
         ResultSet rs = getByIdStatement.executeQuery();
