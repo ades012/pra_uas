@@ -28,6 +28,8 @@ public class Jdbc {
             connection = dataSource.getConnection();
             petugasDao = new PerpusDao();
             petugasDao.setConnection(connection);
+            mahasiswaDao = new MahasiswaDao();
+            mahasiswaDao.setConnection(connection);
         } catch (SQLException ex) {
             ex.printStackTrace();
         }

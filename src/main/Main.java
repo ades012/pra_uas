@@ -154,8 +154,8 @@ public class Main {
             switch (pilih) {
                 case "1":
                     List<Mahasiswa> anggotaR = service.getAllMahasiswa();
-                    System.out.println(anggotaR.toString());
-                    if (anggotaR == null) {
+                    //System.out.println(anggotaR.toString());
+                    if (anggotaR ==null) {
                         System.out.println("Belum ada anggota yang terdaftar. Silakan tambahkan anggota terlebih dahulu!");
                     } else {
                         System.out.println("NPM\tNama\t\t\tJurusan\t\t\tAlamat");
